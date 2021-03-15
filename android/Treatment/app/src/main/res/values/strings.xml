@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Treatment</string>
+    <string name="et_account_hint">账号</string>
+    <string name="et_password_hint">密码</string>
+    <string name="register">新用户</string>
+    <string name="login">登入</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="tv_country">中国+86</string>
+    <string name="et_phoneNumber_hint">请输入你的手机号码</string>
+    <string name="title_phoneNumber">请填写手机号码</string>
+    <string name="btn_next">下一步</string>
+    <string name="tv_xieyi">我已阅读并同意</string>
+    <string name="tv_xieyi_url">使用条款和隐私政策</string>
+    <string name="back">返回</string>
+    <string name="tv_tips_password">密码由6-16位数字,字母或符号组成,不能是9位一下纯数字组成</string>
+    <string name="tv_tips_name">建议填写你的真实姓名,让你的朋友更容易人出你,此昵称以后可以随时修改</string>
+    <string name="et_name_hint">昵称</string>
+    <string name="register_complete">完成</string>
+    <string name="title_register_info">设置密码和昵称</string>
+    <string name="tv_qq">你已获得QQ号码</string>
+    <string name="tv_qq_number">525203053</string>
+    <string name="tv_register_result">启用通讯录查找更多好友,直接发起QQ聊天,我已阅读并同意</string>
+    <string name="tv_tiaokuan">服务声明</string>
+    <string name="tv_register_success">注册成功</string>
+
+    <!--Main界面-->
+    <string name="tab_chat">主页</string>
+    <string name="tab_contact">病历</string>
+    <string name="tab_find">我</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_chat_fragment">Hello Chat fragment</string>
+    <string name="hello_contact_fragment">Hello Contact fragment</string>
+    <string name="hello_find_fragment">Hello Find fragment</string>
+    <string name="hello_me_fragment">Hello Me fragment</string>
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ntu.treatment.dao.UserDao">
+
+    <!-- 目的：为DAO接口方法提供sql语句配置 -->
+    <!-- 验证医生登录 -->
+    <select id="findByDoctorName" resultType="Doctor" parameterType="String">
+        select * from doctor where username = #{username}
+    </select>
+
+    <!-- 验证患者登录 -->
+    <select id="findByPatientName" resultType="Patient" parameterType="String">
+        select * from patient where username = #{username}
+    </select>
+
+    <!-- 医生注册 -->
+    <insert id="registerDoctor">
+        insert into doctor (username,password,category)values (#{username},#{password},#{category})
+    </insert>
+
+    <!-- 患者注册 -->
+    <insert id="registerPatient">
+        insert into patient (username,password)values (#{username},#{password})
+    </insert>
+
+     <!--增加患者病情-->
+    <update id="updatePatientCondition">
+         update patient set patientCondition = #{patientCondition},patientKind = #{patientKind}, myDoctor = #{myDoctor} where username = #{username}
+    </update>
+
+    <insert id="addPatientCondition">
+        insert into patient_history(username,patientCondition,patientKind,myDoctor,submitTime)values (#{username},#{patientCondition},#{patientKind},#{myDoctor},#{submitTime})
+    </insert>
+
+    <update id="updateDoctorToPatient">
+        update doctor set chatPatient = #{username} where username = #{myDoctor}
+    </update>
+
+    <!-- 修改患者信息 -->
+    <update id="updatePatientInfo">
+        update patient set password = #{password}, age = #{age}, sex = #{sex}, hobby = #{hobby}, phone = #{phone} where username = #{username}
+    </update>
+
+    <!-- 返回病史 -->
+    <select id="findAllPatientHistory" resultType="PatientHistory">
+        select * from patient_history where username = #{username}
+    </select>
+
+    <select id="findOnePatientHistory" resultType="PatientHistory">
+        select * from patient_history where username = #{username}and submitTime = #{submitTime}
+    </select>
+   <!--  返回车辆信息
+    <select id="train_info" resultType="Train">
+        select * from train_info
+    </select>-->
+
+    <!-- 选择一个医生 -->
+    <select id="getToUserName" resultType="Doctor">
+        select username from doctor where category = #{category}
+    </select>
+
+    <!-- 建立医生与患者的交流 -->
+    <select id="findChatPatient" resultType="Doctor">
+        select chatPatient from doctor where username = #{username}
+    </select>
+
+    <select id="findAllPatient" resultType="Patient">
+        select * from patient where username = #{username}
+    </select>
+
+    <delete id="deletePatient">
+        delete from patient where username = #{username}
+    </delete>
+</mapper>
